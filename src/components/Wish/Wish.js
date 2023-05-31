@@ -28,7 +28,7 @@ function Wish() {
   const theme = useSelector((state) => state.auth.theme);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user);
-  const userID = useSelector((state) => state.auth.user.id);
+  const userID = useSelector((state) => state.auth.user?.id);
   const successDelete = useSelector((state) => state.favorites.successDelete);
   const wishProducts = useSelector((state) => state.favorites.favorites);
 
@@ -163,7 +163,7 @@ function Wish() {
                       <tr key={index}>
                         <th scope="row" className="delete_wish">
                           <IconButton
-                            onClick={() => deleteItem(product.id)}
+                            onClick={() => deleteItem(product?.id)}
                             aria-label="delete"
                             color="error"
                           >
@@ -173,15 +173,15 @@ function Wish() {
                         <td>
                           <img
                             className="wish_img"
-                            src={product.product_image}
+                            src={product?.product_image}
                             alt="Product"
                           />
                         </td>
-                        <td>{product.product_name}</td>
-                        <td>{product.unit_price} TND</td>
+                        <td>{product?.product_name}</td>
+                        <td>{product?.unit_price} TND</td>
                         <td>
                           <IconButton
-                            onClick={() => openModal(product.productID)}
+                            onClick={() => openModal(product?.productID)}
                             color="primary"
                             aria-label="add to shopping cart"
                           >

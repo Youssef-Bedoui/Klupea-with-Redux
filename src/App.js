@@ -55,13 +55,13 @@ function App() {
   useEffect(() => {
     if (isAuthenticated) {
       const interval = setInterval(() => {
-        dispatch(updateTokens({ id: user.id }));
+        dispatch(updateTokens({ id: user?.id }));
       },60 * 1000);
       return () => {
         clearInterval(interval);
       };
     }
-  }, [dispatch, isAuthenticated, user.id]);
+  }, [dispatch, isAuthenticated, user?.id]);
 
   return (
     <div className={`App ${theme}`}>
